@@ -1,0 +1,7 @@
+SELECT p1.product_name, p1.list_prince, p1.discount_percent
+FROM products AS p1 
+Where p1.discount_percent NOT IN
+      (SELECT p2.discount_perecent
+      FROM products as p2 
+      WHERE p1.product_name <> p2.product_name)
+ORDER BY product_name
